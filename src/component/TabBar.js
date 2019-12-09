@@ -1,24 +1,32 @@
-import React, { Component } from 'react';
-import { View, Text, } from 'react-native';
-class TabBar extends Component {
-    render() {
-        return (
-            <View>
-                <View>
-                    <Text>首页</Text>
-                    <ImageBackground source={{ uri: 'https://facebook.github.io/react-native/img/tiny_logo.png' }}
-                        style={{ width: 50, height: 50 }}>
-                    </ImageBackground>
-                </View>
-                <View>
-                    <Text>我的</Text>
-                    <ImageBackground source={{ uri: 'https://facebook.github.io/react-native/img/tiny_logo.png' }}
-                        style={{ width: 50, height: 50 }}>
-                    </ImageBackground>
-                </View>
-            </View>
-        );
-    }
+import React from 'react';
+import { Text, View } from 'react-native';
+
+import { createAppContainer } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+
+class HomeScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Home!</Text>
+      </View>
+    );
+  }
 }
 
-export default TabBar;
+class SettingsScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Settings!</Text>
+      </View>
+    );
+  }
+}
+
+const TabNavigator = createBottomTabNavigator({
+  Home: HomeScreen,
+  Settings: SettingsScreen,
+});
+
+export default createAppContainer(TabNavigator);

@@ -1,5 +1,5 @@
 import React from "react";
-import App from "./src/router"
+import App from "./src/component/TabBar"
 // import Demo from "./src/component/Demo"
 export default App
 
