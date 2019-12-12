@@ -1,83 +1,52 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Image, Text, FlatList, SectionList, StyleSheet ,RefreshControl} from 'react-native';
+import { View, ScrollView, Image, Text, FlatList, SectionList, StyleSheet, RefreshControl } from 'react-native';
+import Swiper from '../../component/Swiper'
+import Box from '../../component/Box'
+class Home extends Component {
 
-export default class IScrolledDownAndWhatHappenedNextShockedMe extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      refreshing: false,
-      dataList : [
-        { img: 'https://facebook.github.io/react-native/img/tiny_logo.png', key: "1", name: "首页   Image1" },
-        { img: 'https://facebook.github.io/react-native/img/tiny_logo.png', key: "2", name: "Image2" },
-      ]
-    };
-  }
-
-  _onRefresh = () => {
-    alert(1111)
-    var arr = [...this.state.dataList,...this.state.dataList];
-    this.setState({
-      refreshing: true,
-      dataList:arr
-    },()=>{
-      this.setState({refreshing: false});
-    });
-  }
   render() {
-
-    return (
-      <ScrollView 
-      horizontal 
-      style={{height:100}}
-      refreshControl={
-        <RefreshControl
-          refreshing={this.state.refreshing}
-          onRefresh={this._onRefresh}
-        />
-      }
+    return <ScrollView style={{
+      flex: 1,
+      backgroundColor: '#f2f2f2'
+    }}>
+      <Swiper />
+      <Box
+        title="今日孕期知识"
+        name="team"
+        hideMore={true}
       >
-        <FlatList
-          data={this.state.dataList}
-          renderItem={({ item }) => (
-            <View>
-              <Text >{item.name}</Text>
-              <Image source={{ uri: item.img }} style={{ width: 64, height: 64 }} />
-            </View>
-          )}
-        />
-        <View style={styles.container}>
-          <SectionList
-            sections={[
-              { title: 'SectionList1', data: ['Devin', 'Dan'] },
-              { title: 'SectionList2', data: ['Jackson'] },
-            ]}
-            renderItem={({ item }) => <Text style={styles.item}>{item}</Text>}
-            renderSectionHeader={({ section }) => <Text style={styles.sectionHeader}>{section.title}</Text>}
-            keyExtractor={(item, index) => index}
-          />
-        </View>
-      </ScrollView>
-    );
+        <Text>ceshi111111111111111111111122221</Text>
+      </Box>
+      <Box
+        title="知识点播"
+        name="play"
+        hideMore={true}
+      >
+        <Text>ceshi11111111111111111111111</Text>
+      </Box>
+      <Box
+        title="科普知识"
+        name="earth"
+        hideMore={true}
+      >
+        <Text>ceshi11111111111111111111111</Text>
+      </Box>
+      <Box
+        title="圈子"
+        name="codepen-circle"
+        hideMore={true}
+      >
+        <Text>ceshi11111111111111111111111</Text>
+      </Box>
+      <Box
+        title="热议"
+        name="wechat"
+        hideMore={true}
+      >
+        <Text>ceshi11111111111111111111111</Text>
+      </Box>
+    </ScrollView>
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 22
-  },
-  sectionHeader: {
-    paddingTop: 2,
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingBottom: 2,
-    fontSize: 14,
-    fontWeight: 'bold',
-    backgroundColor: 'rgba(247,247,247,1.0)',
-  },
-  item: {
-    padding: 10,
-    fontSize: 18,
-    height: 44,
-  },
-})
+export default Home;
