@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Image, Text, FlatList, SectionList, StyleSheet, Dimensions } from 'react-native';
+import { View, ScrollView, Image, Text, FlatList, SectionList, StyleSheet ,Dimensions} from 'react-native';
 import FormItem from '../../component/Form/index.js'
 import Picker from 'react-native-picker';
 // let pickerData = [
@@ -22,29 +22,25 @@ import Picker from 'react-native-picker';
 // });
 // Picker.show();
 const { width } = Dimensions.get('window');
+const marginLeft = 20;
+const btnW = (width-marginLeft*4)/3;
 class Home extends Component {
-  constructor(props) {
+  constructor(props){
     super(props)
     this.state = {
-      language: null,
-      ceshi: '全部'
+      language:null,
     }
   }
-  componentDidMount() {
+componentDidMount() {
 
-  }
+}
   render() {
     return <ScrollView style={{
-      width: width,
-
+      width:width,
       flex: 1,
       backgroundColor: '#f2f2f2'
     }}>
-      <View style={{
-        flex: 1,
-        marginLeft: 10,
-        marginRight: 10,
-      }}>
+
         <View style={styles.btnGroup}>
           <View style={styles.btn}>
             <Text>月嫂</Text>
@@ -56,13 +52,7 @@ class Home extends Component {
             <Text>全日制育儿嫂</Text>
           </View>
         </View>
-        <FormItem label="服务城市" value={this.state.ceshi} />
-        <FormItem label="预产期" value={this.state.ceshi} />
-        <FormItem label="服务天数" value={this.state.ceshi} />
-        <FormItem label="薪资范围" value={this.state.ceshi} />
-        <FormItem label="工作年限" value={this.state.ceshi} />
-        <FormItem label="籍贯" value={this.state.ceshi} />
-      </View>
+        <FormItem label="服务城市" value="0"/>
     </ScrollView>
 
   }
@@ -71,20 +61,20 @@ class Home extends Component {
 export default Home;
 
 const styles = StyleSheet.create({
-  btnGroup: {
-    flex: 1,
-    paddingTop: 15,
-    paddingBottom: 15,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent:'space-around'
+  btnGroup:{
+    flex:1,
+    paddingTop:15,
+    paddingBottom:15,
+    flexDirection:'row',
+    alignItems:'center',
   },
-  btn: {
-    width: (width - 20 * 4) / 3,
-    backgroundColor: 'red',
-    alignItems: 'center',
-    height: 50,
-    justifyContent: 'center',
+  btn:{
+    width:btnW,
+    backgroundColor:'red',
+    alignItems:'center',
+    height:50,
+    justifyContent:'center',
+    marginLeft:marginLeft,
 
   },
 })
