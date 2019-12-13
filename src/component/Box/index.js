@@ -6,10 +6,15 @@ import {
 } from 'react-native';
 import IconAnt from 'react-native-vector-icons/AntDesign'
 
-function Right(props){
-    return  props.hideMore ? null: <IconAnt name='right' size={24} color='gray' />;
-}
+// function Right(props){
+//     return  props.hideMore ? null: <IconAnt name='right' size={24} color='gray' />;
+// }
 
+class Right extends Component {
+    render() {
+        return  (this.props.hideMore ? null: <IconAnt name='right' size={24} color='gray' />);
+    }
+}
 class BoxWrap extends Component {
     render() {
         const { name = 'form', color = '#FE9B40', size = 24, title ,hideMore} = this.props;

@@ -9,6 +9,7 @@ import IconWithBadge from './IconWithBadge'
 
 import Home from '../view/Home'
 import About from '../view/About'
+import HouseKeep from '../view/HouseKeep/index.js'
 
 
 // 
@@ -29,7 +30,7 @@ class HousekeepScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <About />
+        <HouseKeep />
       </View>
     );
   }

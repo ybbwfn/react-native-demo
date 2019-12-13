@@ -25,16 +25,16 @@ export default class App extends Component {
           autoplay = {true}
       >
           <View style={styles.slide} title={<Text numberOfLines={1}>Aussie tourist dies at Bali hotel</Text>}>
-            <Image resizeMode='stretch' style={styles.image} source={require('../img/a.png')} />
+            <Image resizeMode='stretch' style={styles.image} source={require('../img/banner1.png')} />
           </View>
           <View style={styles.slide} title={<Text numberOfLines={1}>Big lie behind Nine’s new show</Text>}>
-            <Image resizeMode='stretch' style={styles.image} source={require('../img/b.png')} />
+            <Image resizeMode='stretch' style={styles.image} source={require('../img/banner2.png')} />
           </View>
           <View style={styles.slide} title={<Text numberOfLines={1}>Why Stone split from Garfield</Text>}>
-            <Image resizeMode='stretch' style={styles.image} source={require('../img/c.png')} />
+            <Image resizeMode='stretch' style={styles.image} source={require('../img/banner3.png')} />
           </View>
           <View style={styles.slide} title={<Text numberOfLines={1}>Learn from Kim K to land that job</Text>}>
-            <Image resizeMode='stretch' style={styles.image} source={require('../img/d.png')} />
+            <Image resizeMode='stretch' style={styles.image} source={require('../img/c.png')} />
           </View>
         </Swiper>
       </View>
