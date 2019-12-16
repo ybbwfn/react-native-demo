@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Text, TextInput, View,Button } from 'react-native';
-import { SwitchActions } from 'react-navigation';
 
 
 export default class PizzaTranslator extends Component {

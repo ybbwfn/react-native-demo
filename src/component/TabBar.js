@@ -11,7 +11,9 @@ import Home from '../view/Home'
 import About from '../view/About'
 import HouseKeep from '../view/HouseKeep/index.js'
 
-
+function Ceshi(){
+  return <Text>11</Text>
+}
 // 
 class HomeScreen extends React.Component {
   componentDidMount() {
@@ -58,7 +60,7 @@ class MyScreen extends React.Component {
 }
 const TabNavigator = createBottomTabNavigator(
   {
-    '首页': HomeScreen,
+    '首页': Ceshi,
     '家政': HousekeepScreen,
     '发现': FindgsScreen,
     '我的': MyScreen,

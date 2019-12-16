@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { View ,Button} from 'react-native';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
 export default class FlexDimensionsBasics extends Component {
   constructor(props){
     super(props)
   }
   componentDidMount() {
-    console.log(createBottomTabNavigator)
   }
   render() {
     return (

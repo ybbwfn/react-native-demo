@@ -19,7 +19,7 @@ import {
 
 
 } from 'react-native'
-import { WebView } from 'react-native-webview';
+// import { WebView } from 'react-native-webview';
 export default class App extends Component {
     constructor(props) {
         super(props)
@@ -136,11 +136,11 @@ export default class App extends Component {
                         <Text>VirtualizedList:   FlatList和SectionList的底层实现</Text>
                     </View>
                     <View style={styles.items}>
-                        <Text>WebView:</Text>
+                        {/* <Text>WebView:</Text>
                         <WebView
                             source={{ uri: 'https://www.baidu.com' }}
                             style={{ marginTop: 20 }}
-                        />
+                        /> */}
                     </View>
 
 
