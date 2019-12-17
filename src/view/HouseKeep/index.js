@@ -11,11 +11,14 @@ const { width, height } = Dimensions.get('window');
 class MianShi extends Component {
   constructor(props){
     super(props)
-    console.log(this.props)
+  }
+  pushRouter= (url)=>{
+    // console.log(this)
+    // this.props.navigation.navigate(url)
   }
   render() {
     return <View style={styles.MianShi}>
-      <TouchableNativeFeedback onPress={()=>this.props.navigation.navigate('YueSao')}>
+      <TouchableNativeFeedback onPress={()=>{this.pushRouter('YueSao')}}>
         <Image
           style={styles.headImg}
           source={
@@ -69,6 +72,7 @@ class Home extends Component {
     }
   }
   componentDidMount() {
+        // console.dir(this)
 
   }
   // onDatePicker = async (options = {mode:'calendar'}) => {

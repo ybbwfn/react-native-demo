@@ -3,9 +3,8 @@ import { Text, View} from 'react-native';
 
 
 // import Font from '../fonts/Font'
-import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
-import IconWithBadge from './IconWithBadge'
+import IconWithBadge from '../component/IconWithBadge'
 
 import Home from '../view/Home'
 import About from '../view/About'
@@ -29,6 +28,12 @@ class HomeScreen extends React.Component {
 }
 
 class HousekeepScreen extends React.Component {
+  constructor(props){
+    super(props)
+  }
+  componentDidMount() {
+    this.props.navigation.push('Form')
+  }
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -58,14 +63,14 @@ class MyScreen extends React.Component {
     );
   }
 }
-const TabNavigator = createBottomTabNavigator(
-  {
+
+const stackRouterMap = {
     '首页': Ceshi,
     '家政': HousekeepScreen,
     '发现': FindgsScreen,
     '我的': MyScreen,
-  },
-  {
+}
+const TabNavigator = createBottomTabNavigator(stackRouterMap,{
     defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, horizontal, tintColor }) => {
         const { routeName } = navigation.state;
@@ -90,4 +95,4 @@ const TabNavigator = createBottomTabNavigator(
   }
 );
 
-export default createAppContainer(TabNavigator);
+export default TabNavigator;
