@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import {
-  createAppContainer,
-} from 'react-navigation'
+import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack';
-import TabBar from './TabBar'
+import main from './TabBar'
 import Form from '../component/Form'
 import Flex from '../component/Flex'
 import YueSao from '../view/HouseKeep/YueSao'
@@ -22,12 +20,23 @@ const stackRouterMap = {
   Flex: Flex,
   YueSao:YueSao,
   YuEr:YuEr,
-  main: TabBar
+  main: {
+    screen: main,
+    path: 'main',
+    navigationOptions: ({ navigation }) => ({
+      // title:'111',
+      // headerBackTitleVisible:false,
+      // mode  :'none',
+      header:null
+    }),
+  }
 }
 
 const SketchRouter = createStackNavigator(stackRouterMap,{
   initialRouteName: 'main',
-  headerMode: 'none'
+  // headerMode: 'none'
 })
+
+
 
 export default createAppContainer(SketchRouter)

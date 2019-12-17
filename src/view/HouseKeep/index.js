@@ -14,7 +14,7 @@ class MianShi extends Component {
   }
   pushRouter= (url)=>{
     // console.log(this)
-    // this.props.navigation.navigate(url)
+    this.props.navigation.push(url)
   }
   render() {
     return <View style={styles.MianShi}>
@@ -26,7 +26,7 @@ class MianShi extends Component {
           }
         />
       </TouchableNativeFeedback>
-      <TouchableNativeFeedback onPress={()=>this.props.navigation.navigate('YuEr')}>
+      <TouchableNativeFeedback onPress={()=>{this.pushRouter('YuEr')}}>
         <Image
           style={styles.headImg}
           source={

@@ -4,12 +4,15 @@
 
 import React, { Component } from 'react'
 import SketchRouter from './src/router'
-
+import { Provider } from 'react-redux'
+import store from './src/store'
 export default class App extends Component {
-  render () {
+  render() {
     // console.disableYellowBox = true
     return (
+      <Provider store={store}>
         <SketchRouter />
+      </Provider>
     )
   }
 }

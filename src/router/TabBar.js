@@ -9,10 +9,33 @@ import IconWithBadge from '../component/IconWithBadge'
 import Home from '../view/Home'
 import About from '../view/About'
 import HouseKeep from '../view/HouseKeep/index.js'
-
-function Ceshi(){
-  return <Text>11</Text>
+import { connect } from 'react-redux';
+//返回数据的方法，供我们connect使用，他会帮我们把数据转换成props
+const mapStateToProps=(state)=>{
+  return {
+   tab:state.tab
+  }
 }
+//返回dispatch方法的方法，供我们connect使用，他会帮我们把dispatch转换成props
+const mapDispatchToProps=(dispatch)=>{
+ return {
+     setTab:(data)=>dispatch({type:'setTab',data:data}),
+ }
+}
+class Ceshi1 extends React.Component{
+  constructor(props){
+    super(props)
+  }
+  componentDidMount() {
+    this.props.setTab(this.props.navigation)
+  }
+  render(){
+    return <Text>11</Text>
+  }
+}
+const Ceshi = connect(
+  mapStateToProps,mapDispatchToProps
+)(Ceshi1);
 // 
 class HomeScreen extends React.Component {
   componentDidMount() {
@@ -28,16 +51,10 @@ class HomeScreen extends React.Component {
 }
 
 class HousekeepScreen extends React.Component {
-  constructor(props){
-    super(props)
-  }
-  componentDidMount() {
-    this.props.navigation.push('Form')
-  }
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <HouseKeep />
+        <HouseKeep navigation={this.props.navigation}/>
       </View>
     );
   }
@@ -52,9 +69,8 @@ class FindgsScreen extends React.Component {
     );
   }
 }
+
 class MyScreen extends React.Component {
-  componentDidMount() {
-  }
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -63,6 +79,7 @@ class MyScreen extends React.Component {
     );
   }
 }
+
 
 const stackRouterMap = {
     '首页': Ceshi,
@@ -91,6 +108,7 @@ const TabNavigator = createBottomTabNavigator(stackRouterMap,{
     tabBarOptions: {
       activeTintColor: '#FE9B40',
       inactiveTintColor: 'gray',
+      tabBarVisible:true,
     },
   }
 );
