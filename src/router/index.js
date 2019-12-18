@@ -4,8 +4,8 @@ import { createStackNavigator } from 'react-navigation-stack';
 import main from './TabBar'
 import Form from '../component/Form'
 import Flex from '../component/Flex'
-import YueSao from '../view/HouseKeep/YueSao'
-import YuEr from '../view/HouseKeep/YuEr'
+import YueSao from '../view/YueSao'
+import YuEr from '../view/YuEr'
 
 const stackRouterMap = {
   Form: {

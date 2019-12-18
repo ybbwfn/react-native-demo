@@ -9,31 +9,118 @@ import Picker from 'react-native-picker';
 const { width, height } = Dimensions.get('window');
 
 class MianShi extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
   }
-  pushRouter= (url)=>{
+  pushRouter = (url) => {
     // console.log(this)
     this.props.navigation.push(url)
   }
   render() {
     return <View style={styles.MianShi}>
-      <TouchableNativeFeedback onPress={()=>{this.pushRouter('YueSao')}}>
-        <Image
-          style={styles.headImg}
-          source={
-            require('../../img/11.png')
-          }
-        />
+      <TouchableNativeFeedback onPress={() => { this.pushRouter('YueSao') }}>
+        <View style={[styles.headImg, styles.borderRight]}>
+          <Image
+
+
+            style={styles.img}
+            source={
+              require('../../img/11.png')
+            }
+          />
+        </View>
       </TouchableNativeFeedback>
-      <TouchableNativeFeedback onPress={()=>{this.pushRouter('YuEr')}}>
-        <Image
-          style={styles.headImg}
-          source={
-            require('../../img/22.png')
-          }
-        />
+      <TouchableNativeFeedback onPress={() => { this.pushRouter('YuEr') }}>
+        <View style={styles.headImg}>
+          <Image
+
+
+            style={styles.img}
+            source={
+              require('../../img/22.png')
+            }
+          />
+        </View>
       </TouchableNativeFeedback>
+    </View>
+  }
+}
+function Title(props) {
+  return <View style={{ width: width, }}>
+    <Text style={{ height: 70, lineHeight: 70, fontSize: 18 }}>{props.title}</Text>
+  </View>
+}
+class Service extends Component {
+  constructor(props) {
+    super(props)
+  }
+  pushRouter = (url) => {
+    // console.log(this)
+    this.props.navigation.push(url)
+  }
+  render() {
+    return <View style={styles.box}>
+      <Title title="服务保障" />
+      <TouchableNativeFeedback onPress={() => { this.pushRouter('YueSao') }}>
+        <View style={styles.serviceBtn}></View>
+      </TouchableNativeFeedback>
+      <TouchableNativeFeedback onPress={() => { this.pushRouter('YueSao') }}>
+        <View style={styles.serviceBtn}></View>
+      </TouchableNativeFeedback>
+      <TouchableNativeFeedback onPress={() => { this.pushRouter('YueSao') }}>
+        <View style={styles.serviceBtn}></View>
+      </TouchableNativeFeedback>
+      <TouchableNativeFeedback onPress={() => { this.pushRouter('YueSao') }}>
+        <View style={styles.serviceBtn}></View>
+      </TouchableNativeFeedback>
+
+    </View>
+  }
+}
+class BestService extends Component {
+  constructor(props) {
+    super(props)
+  }
+  pushRouter = (url) => {
+    // console.log(this)
+    this.props.navigation.push(url)
+  }
+  render() {
+    return <View style={styles.box}>
+      <Title title="致优服务" />
+      <TouchableNativeFeedback onPress={() => { this.pushRouter('YueSao') }}>
+        <View style={styles.BestServiceBox}></View>
+      </TouchableNativeFeedback>
+      <TouchableNativeFeedback onPress={() => { this.pushRouter('YueSao') }}>
+        <View style={styles.BestServiceBox}></View>
+      </TouchableNativeFeedback>
+      <TouchableNativeFeedback onPress={() => { this.pushRouter('YueSao') }}>
+        <View style={styles.BestServiceBox}></View>
+      </TouchableNativeFeedback>
+      <TouchableNativeFeedback onPress={() => { this.pushRouter('YueSao') }}>
+        <View style={styles.BestServiceBox}></View>
+      </TouchableNativeFeedback>
+
+    </View>
+  }
+}
+class ServiceProcess extends Component {
+  constructor(props) {
+    super(props)
+  }
+  pushRouter = (url) => {
+    // console.log(this)
+    this.props.navigation.push(url)
+  }
+  render() {
+    return <View >
+      <Title title="服务流程" />
+      <TouchableNativeFeedback onPress={() => { this.pushRouter('YueSao') }}>
+        <View style={{}}>
+
+        </View>
+      </TouchableNativeFeedback>
+
     </View>
   }
 }
@@ -72,7 +159,7 @@ class Home extends Component {
     }
   }
   componentDidMount() {
-        // console.dir(this)
+    // console.dir(this)
 
   }
   // onDatePicker = async (options = {mode:'calendar'}) => {
@@ -165,13 +252,11 @@ class Home extends Component {
         width: width,
 
         flex: 1,
-        backgroundColor: '#f2f2f2',
+        backgroundColor: '#fff',
         position: 'relative'
       }}>
-        <View style={{
-          marginLeft: 10,
-          marginRight: 10,
-        }}>
+        <View style={styles.marginWrap}>
+          {/* 筛选表单 */}
           <View style={styles.btnGroup}>
             <View style={styles.btn}>
               <Text>月嫂</Text>
@@ -189,14 +274,22 @@ class Home extends Component {
           <FormItem label="薪资范围" value={this.state.ceshi} getValue={this.getValue} />
           <FormItem label="工作年限" value={this.state.ceshi} getValue={this.getValue} />
           <FormItem label="籍贯" value={this.state.ceshi} getValue={this.getValue} />
+          <TouchableNativeFeedback>
+            <View style={styles.searchBtnWrap}>
+              <Text style={styles.searchBtn}>立即筛选</Text>
+            </View>
+          </TouchableNativeFeedback>
+          {/* 面试指南 */}
+          <MianShi navigation={this.props.navigation} />
+          {/* 服务保障 */}
+          <Service />
+          {/* 至优服务 */}
+          <BestService />
+          {/* 服务流程 */}
+          <ServiceProcess />
         </View>
-        <TouchableNativeFeedback>
-          <View style={styles.searchBtnWrap}>
-            <Text style={styles.searchBtn}>立即筛选</Text>
-          </View>
-        </TouchableNativeFeedback>
-        {/* 面试指南 */}
-        <MianShi navigation={this.props.navigation }/>
+
+
       </ScrollView>
       <Over showPicker={this.state.showPicker} />
     </View>
@@ -206,6 +299,10 @@ class Home extends Component {
 export default Home;
 
 const styles = StyleSheet.create({
+  marginWrap: {
+    marginLeft: 10,
+    marginRight: 10,
+  },
   over: {
     position: 'absolute',
     backgroundColor: 'yellow',
@@ -245,9 +342,41 @@ const styles = StyleSheet.create({
     color: '#fff'
   },
   MianShi: {
-
+    flex: 1,
+    alignItems: 'center',
+    flexDirection: 'row'
   },
   headImg: {
+    borderColor: '#ccc',
+    borderStyle: 'solid',
+    borderBottomWidth: 1,
+    borderTopWidth: 1,
+    flex: 1,
+    overflow: 'hidden'
+  },
+  img: {
 
+  },
+  borderRight: {
+    borderRightWidth: 1
+  },
+  box: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    flexWrap: 'wrap'
+  },
+  serviceBtn: {
+    backgroundColor: 'red',
+    width: width / 2 - 20,
+    height: (width / 2 - 20) / 2,
+    marginBottom: 10,
+  },
+  BestServiceBox:{
+    backgroundColor: 'red',
+    width: 100,
+    height: 120,
+    marginBottom: 10,
   }
 })
