@@ -1,129 +1,19 @@
 import React, { Component } from 'react';
 import {
   View, ScrollView, Image, Text, FlatList, SectionList, StyleSheet, Dimensions, TouchableNativeFeedback,
-  DatePickerAndroid, ToastAndroid
+  DatePickerAndroid, ToastAndroid,ImageBackground
 } from 'react-native';
 import FormItem from '../../component/Form/index.js'
 import Picker from 'react-native-picker';
-// import Router from './router'
+
+
+
+
+import MianShi from './MianShi'
+import Service from './Service'
+import BestService from './BestService'
+import ServiceProcess from './ServiceProcess'
 const { width, height } = Dimensions.get('window');
-
-class MianShi extends Component {
-  constructor(props) {
-    super(props)
-  }
-  pushRouter = (url) => {
-    // console.log(this)
-    this.props.navigation.push(url)
-  }
-  render() {
-    return <View style={styles.MianShi}>
-      <TouchableNativeFeedback onPress={() => { this.pushRouter('YueSao') }}>
-        <View style={[styles.headImg, styles.borderRight]}>
-          <Image
-
-
-            style={styles.img}
-            source={
-              require('../../img/11.png')
-            }
-          />
-        </View>
-      </TouchableNativeFeedback>
-      <TouchableNativeFeedback onPress={() => { this.pushRouter('YuEr') }}>
-        <View style={styles.headImg}>
-          <Image
-
-
-            style={styles.img}
-            source={
-              require('../../img/22.png')
-            }
-          />
-        </View>
-      </TouchableNativeFeedback>
-    </View>
-  }
-}
-function Title(props) {
-  return <View style={{ width: width, }}>
-    <Text style={{ height: 70, lineHeight: 70, fontSize: 18 }}>{props.title}</Text>
-  </View>
-}
-class Service extends Component {
-  constructor(props) {
-    super(props)
-  }
-  pushRouter = (url) => {
-    // console.log(this)
-    this.props.navigation.push(url)
-  }
-  render() {
-    return <View style={styles.box}>
-      <Title title="服务保障" />
-      <TouchableNativeFeedback onPress={() => { this.pushRouter('YueSao') }}>
-        <View style={styles.serviceBtn}></View>
-      </TouchableNativeFeedback>
-      <TouchableNativeFeedback onPress={() => { this.pushRouter('YueSao') }}>
-        <View style={styles.serviceBtn}></View>
-      </TouchableNativeFeedback>
-      <TouchableNativeFeedback onPress={() => { this.pushRouter('YueSao') }}>
-        <View style={styles.serviceBtn}></View>
-      </TouchableNativeFeedback>
-      <TouchableNativeFeedback onPress={() => { this.pushRouter('YueSao') }}>
-        <View style={styles.serviceBtn}></View>
-      </TouchableNativeFeedback>
-
-    </View>
-  }
-}
-class BestService extends Component {
-  constructor(props) {
-    super(props)
-  }
-  pushRouter = (url) => {
-    // console.log(this)
-    this.props.navigation.push(url)
-  }
-  render() {
-    return <View style={styles.box}>
-      <Title title="致优服务" />
-      <TouchableNativeFeedback onPress={() => { this.pushRouter('YueSao') }}>
-        <View style={styles.BestServiceBox}></View>
-      </TouchableNativeFeedback>
-      <TouchableNativeFeedback onPress={() => { this.pushRouter('YueSao') }}>
-        <View style={styles.BestServiceBox}></View>
-      </TouchableNativeFeedback>
-      <TouchableNativeFeedback onPress={() => { this.pushRouter('YueSao') }}>
-        <View style={styles.BestServiceBox}></View>
-      </TouchableNativeFeedback>
-      <TouchableNativeFeedback onPress={() => { this.pushRouter('YueSao') }}>
-        <View style={styles.BestServiceBox}></View>
-      </TouchableNativeFeedback>
-
-    </View>
-  }
-}
-class ServiceProcess extends Component {
-  constructor(props) {
-    super(props)
-  }
-  pushRouter = (url) => {
-    // console.log(this)
-    this.props.navigation.push(url)
-  }
-  render() {
-    return <View >
-      <Title title="服务流程" />
-      <TouchableNativeFeedback onPress={() => { this.pushRouter('YueSao') }}>
-        <View style={{}}>
-
-        </View>
-      </TouchableNativeFeedback>
-
-    </View>
-  }
-}
 class Over extends Component {
   constructor(props) {
     super(props)
@@ -258,15 +148,17 @@ class Home extends Component {
         <View style={styles.marginWrap}>
           {/* 筛选表单 */}
           <View style={styles.btnGroup}>
-            <View style={styles.btn}>
-              <Text>月嫂</Text>
-            </View>
-            <View style={styles.btn}>
-              <Text>育儿嫂</Text>
-            </View>
-            <View style={[styles.btn]}>
-              <Text>全日制育儿嫂</Text>
-            </View>
+         
+            <TouchableNativeFeedback onPress={() => {  }}>
+                <ImageBackground source={require("../../img/btn-1.png")} style={styles.btn}><Text>月嫂</Text></ImageBackground >
+            </TouchableNativeFeedback>
+            <TouchableNativeFeedback onPress={() => {  }}>
+                <ImageBackground source={require("../../img/btn-2.png")} style={styles.btn}><Text>育儿嫂</Text></ImageBackground >
+            </TouchableNativeFeedback>
+            <TouchableNativeFeedback onPress={() => {  }}>
+                <ImageBackground source={require("../../img/btn-3.png")} style={styles.btn}><Text>全日制育儿嫂</Text></ImageBackground >
+            </TouchableNativeFeedback>
+
           </View>
           <FormItem label="服务城市" value="北京市北京辖区" getValue={this.getValue} />
           <FormItem label="预产期" value={this.state.ceshi} getValue={this.getValue} />
@@ -320,11 +212,9 @@ const styles = StyleSheet.create({
   },
   btn: {
     width: (width - 20 * 4) / 3,
-    backgroundColor: 'red',
     alignItems: 'center',
     height: 50,
     justifyContent: 'center',
-
   },
   searchBtnWrap: {
     marginTop: 10,
@@ -341,42 +231,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#fff'
   },
-  MianShi: {
-    flex: 1,
-    alignItems: 'center',
-    flexDirection: 'row'
-  },
-  headImg: {
-    borderColor: '#ccc',
-    borderStyle: 'solid',
-    borderBottomWidth: 1,
-    borderTopWidth: 1,
-    flex: 1,
-    overflow: 'hidden'
-  },
-  img: {
 
-  },
-  borderRight: {
-    borderRightWidth: 1
-  },
-  box: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    flexWrap: 'wrap'
-  },
-  serviceBtn: {
-    backgroundColor: 'red',
-    width: width / 2 - 20,
-    height: (width / 2 - 20) / 2,
-    marginBottom: 10,
-  },
-  BestServiceBox:{
-    backgroundColor: 'red',
-    width: 100,
-    height: 120,
-    marginBottom: 10,
-  }
 })
