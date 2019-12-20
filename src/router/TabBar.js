@@ -9,6 +9,7 @@ import IconWithBadge from '../component/IconWithBadge'
 import Home from '../view/Home'
 import About from '../view/About'
 import HouseKeep from '../view/HouseKeep/index.js'
+import Find from '../view/Find'
 import { connect } from 'react-redux';
 //返回数据的方法，供我们connect使用，他会帮我们把数据转换成props
 const mapStateToProps=(state)=>{
@@ -64,7 +65,7 @@ class FindgsScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>1111</Text>
+        <Find />
       </View>
     );
   }

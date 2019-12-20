@@ -14,6 +14,9 @@ class Right extends Component {
         return (this.props.hideMore ? null : <IconAnt name='right' size={24} color='gray' />);
     }
 }
+function BoxIcon(props){
+    return props.icon ? <IconAnt name={props.icon} size={24} color='orange' style={{marginLeft:8,marginRight:12}}/> :null;
+}
 class BoxWrap extends Component {
     getValue(text){
         this.props.getValue(text)
@@ -21,7 +24,8 @@ class BoxWrap extends Component {
     render() {
         const { label, value = null, color = '#FE9B40', hideMore } = this.props;
         return (
-            <View style={styles.formItem}>
+            <View style={[styles.formItem,{borderBottomWidth:this.props.noUnder?0:1}]}>
+                <BoxIcon icon={this.props.icon}/>
                 <Text style={styles.left}>{label}</Text>
                 <TouchableNativeFeedback
                     onPress={() => { this.getValue(label) }}
@@ -40,12 +44,12 @@ export default BoxWrap;
 
 const styles = StyleSheet.create({
     formItem: {
-        flex: 1,
+
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
         height: 50,
-        borderBottomWidth: 1,
+
         borderStyle: 'solid',
         borderBottomColor: '#ccc',
     },
