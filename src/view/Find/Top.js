@@ -38,25 +38,57 @@ class Btn extends Component {
     </TouchableNativeFeedback>)
   }
 }
+export function ImgOver(props) {
+  return <View>
+    <Image
+      source={props.imgSrc}
+      style={props.style} />
+    <View style={[{
+      position: 'absolute',
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'flex-end',
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    },props.style]}>
+      {props.children}
+    </View></View>
+}
 
 class Top extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image
+        <ImgOver
+          imgSrc={require("../../img/banner1.png")}
+          style={{
+            borderRadius: 20,
+            width: width - 40,
+            height: width / 2.5,
+          }}>
+          <Btn title="我要提问"
+            style={{
+              borderWidth: 1,
+              borderColor: '#fff',
+              borderRadius: 20,
+              color: 'orange',
+              position: 'relative',
+              top: -10
+            }} />
+        </ImgOver>
+        {/* <Image
           source={require("../../img/banner1.png")}
           style={styles.bg} />
-                    <View style={styles.btnBox}>
-            <Btn title="我要提问"
-              style={{
-                borderWidth: 1,
-                borderColor: '#fff',
-                borderRadius: 20,
-                color: 'orange',
-                position: 'relative',
-                top: -10
-              }} />
-          </View>
+        <View style={styles.btnBox}>
+          <Btn title="我要提问"
+            style={{
+              borderWidth: 1,
+              borderColor: '#fff',
+              borderRadius: 20,
+              color: 'orange',
+              position: 'relative',
+              top: -10
+            }} />
+        </View> */}
       </View>
     );
   }
@@ -67,28 +99,12 @@ export default connect(
 )(Top);
 
 const styles = StyleSheet.create({
-  container:{
+  container: {
 
     width: width,
-    height: width / 2.5+40,
-    backgroundColor:'#fff',
-    alignItems:'center',
-    justifyContent:'center'
-  },
-  bg: {
-    borderRadius:20,
-    width: width-40,
-    height: width / 2.5,
-
-  },
-  btnBox: {
-    borderRadius:20,
-    position:'absolute',
-    width: width-40,
-    height: width / 2.5,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'flex-end',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    height: width / 2.5 + 40,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
 })

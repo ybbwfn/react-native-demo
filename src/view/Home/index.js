@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { View, ScrollView, Image, Text, FlatList, SectionList, StyleSheet, RefreshControl } from 'react-native';
 import Swiper from '../../component/Swiper'
 import Box from '../../component/Box'
+import Today from './Today';
+import Play from './Play';
 class Home extends Component {
 
   render() {
@@ -15,14 +17,13 @@ class Home extends Component {
         name="team"
         hideMore={true}
       >
-        <Text>ceshi111111111111111111111122221</Text>
+        <Today />
       </Box>
       <Box
         title="知识点播"
         name="play"
-        hideMore={true}
       >
-        <Text>ceshi11111111111111111111111</Text>
+        <Play />
       </Box>
       <Box
         title="科普知识"

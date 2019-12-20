@@ -10,18 +10,18 @@ function Cicle(props) {
   let icon = props.icon || 'questioncircle'
   return <View style={{
     backgroundColor: bg,
-    width: 70,
-    height: 70,
+    width: 60,
+    height: 60,
     borderRadius: 50,
     alignItems: 'center',
     justifyContent: 'center'
   }}>
-    <IconAnt style={{}} name={icon} size={40} color={color} />
+    <IconAnt style={{}} name={icon} size={32} color={color} />
   </View>
 }
 
-function Nav(props) {
-  return <View style={{ width: '33.3%', height: 95, alignItems: 'center', justifyContent: 'space-between' }}>
+export function Nav(props) {
+  return <View style={{ width: '33.3%', height: 85, alignItems: 'center', justifyContent: 'space-between' }}>
     <Cicle {...props}/>
 <Text style={{color:props.color||'#000'}}>{props.title}</Text>
   </View>

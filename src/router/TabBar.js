@@ -23,20 +23,6 @@ const mapDispatchToProps=(dispatch)=>{
      setTab:(data)=>dispatch({type:'setTab',data:data}),
  }
 }
-class Ceshi1 extends React.Component{
-  constructor(props){
-    super(props)
-  }
-  componentDidMount() {
-    this.props.setTab(this.props.navigation)
-  }
-  render(){
-    return <Text>11</Text>
-  }
-}
-const Ceshi = connect(
-  mapStateToProps,mapDispatchToProps
-)(Ceshi1);
 // 
 class HomeScreen extends React.Component {
   componentDidMount() {
@@ -83,7 +69,7 @@ class MyScreen extends React.Component {
 
 
 const stackRouterMap = {
-    '首页': Ceshi,
+    '首页': HomeScreen,
     '家政': HousekeepScreen,
     '发现': FindgsScreen,
     '我的': MyScreen,

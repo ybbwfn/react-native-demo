@@ -3,9 +3,10 @@ import {
     StyleSheet,
     Text,
     View,
+    Dimensions,
 } from 'react-native';
 import IconAnt from 'react-native-vector-icons/AntDesign'
-
+const { width, height } = Dimensions.get('window');
 // function Right(props){
 //     return  props.hideMore ? null: <IconAnt name='right' size={24} color='gray' />;
 // }
@@ -56,13 +57,13 @@ const styles = StyleSheet.create({
         flex:1,
     },
     container: {
-        marginTop:10,
+        flex:1,
+        marginTop:7,
     },
     content:{
+        width:width,
         backgroundColor:'#fff',
         paddingTop:10,
         paddingBottom:20,
-        paddingLeft:10,
-        paddingRight:10,
     }
 })
