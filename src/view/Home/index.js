@@ -4,6 +4,9 @@ import Swiper from '../../component/Swiper'
 import Box from '../../component/Box'
 import Today from './Today';
 import Play from './Play';
+import Knowledge from './Knowledge'
+import Circle from './Circle'
+import HotSpeek from './HotSpeek'
 class Home extends Component {
 
   render() {
@@ -28,23 +31,22 @@ class Home extends Component {
       <Box
         title="科普知识"
         name="earth"
-        hideMore={true}
+        contentStyle={{paddingLeft:0,paddingRight:0}}
       >
-        <Text>ceshi11111111111111111111111</Text>
+        <Knowledge />
       </Box>
       <Box
         title="圈子"
         name="codepen-circle"
-        hideMore={true}
       >
-        <Text>ceshi11111111111111111111111</Text>
+        <Circle />
       </Box>
       <Box
         title="热议"
         name="wechat"
-        hideMore={true}
+        contentStyle={{paddingLeft:0,paddingRight:0}}
       >
-        <Text>ceshi11111111111111111111111</Text>
+        <HotSpeek />
       </Box>
     </ScrollView>
   }

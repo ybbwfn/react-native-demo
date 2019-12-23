@@ -26,7 +26,7 @@ class BoxWrap extends Component {
                     <Text style={styles.titleText}>{title}</Text>
                     <Right hideMore={hideMore}/>
                 </View>
-                <View style={styles.content}>
+                <View style={[styles.content,this.props.contentStyle]}>
                     {this.props.children}
                 </View>
                 
