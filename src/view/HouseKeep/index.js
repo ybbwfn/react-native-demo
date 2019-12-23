@@ -150,13 +150,13 @@ class Home extends Component {
           <View style={styles.btnGroup}>
          
             <TouchableNativeFeedback onPress={() => {  }}>
-                <ImageBackground source={require("../../img/btn-1.png")} style={styles.btn}><Text>月嫂</Text></ImageBackground >
+                <ImageBackground source={require("../../img/btn-1.png")} style={styles.btn}><Text style={styles.btnText}>月嫂</Text></ImageBackground >
             </TouchableNativeFeedback>
             <TouchableNativeFeedback onPress={() => {  }}>
-                <ImageBackground source={require("../../img/btn-2.png")} style={styles.btn}><Text>育儿嫂</Text></ImageBackground >
+                <ImageBackground source={require("../../img/btn-2.png")} style={styles.btn}><Text style={styles.btnText}>育儿嫂</Text></ImageBackground >
             </TouchableNativeFeedback>
             <TouchableNativeFeedback onPress={() => {  }}>
-                <ImageBackground source={require("../../img/btn-3.png")} style={styles.btn}><Text>全日制育儿嫂</Text></ImageBackground >
+                <ImageBackground source={require("../../img/btn-3.png")} style={styles.btn}><Text style={styles.btnText}>全日制育儿嫂</Text></ImageBackground >
             </TouchableNativeFeedback>
 
           </View>
@@ -211,18 +211,21 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around'
   },
   btn: {
-    width: (width - 20 * 4) / 3,
+    width: (width - 15 * 4) / 3,
     alignItems: 'center',
     height: 50,
     justifyContent: 'center',
   },
+  btnText:{
+    color:'#fff',
+  },
   searchBtnWrap: {
+    flex:1,
     marginTop: 10,
     marginBottom: 20,
     alignItems: 'center',
   },
   searchBtn: {
-    alignItems: 'center',
     textAlign: 'center',
     width: 200,
     height: 40,

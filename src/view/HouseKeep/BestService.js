@@ -13,7 +13,9 @@ const mapStateToProps = (state) => {
   }
 }
 function ImageBox(props) {
-  return <TouchableNativeFeedback onPress={() => { props.tab.push(props.path) }}>
+  return <TouchableNativeFeedback onPress={() => { 
+    // props.tab.push(props.path) 
+    }}>
 
     <Image source={props.imgSrc} style={styles.img} />
 
